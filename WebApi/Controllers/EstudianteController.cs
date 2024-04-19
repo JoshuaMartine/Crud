@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
 using WebApi.Data;
-using WebApi.Controllers;
 using WebApi.models;
-
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
@@ -20,10 +17,10 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-     
+
         public async Task<IActionResult> Lista()
         {
-           List <Estudiante>Lista = await  _estudianteData.Lista();
+            List<Estudiante> Lista = await _estudianteData.Lista();
 
             return StatusCode(StatusCodes.Status200OK, Lista);
         }
@@ -44,7 +41,6 @@ namespace WebApi.Controllers
             bool respuesta = await _estudianteData.Crear(objeto);
             return StatusCode(StatusCodes.Status200OK, new { isSuccess = respuesta });
         }
-
 
 
         [HttpPut]

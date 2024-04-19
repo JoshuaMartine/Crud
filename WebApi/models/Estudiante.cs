@@ -3,13 +3,12 @@
     public class Estudiante
     {
         public int IdEstudiante { get; set; }
-
-        public string NombreCompleto { get; set; }
-
+        public string Nombre { get; set; }
+        public int Edad { get; set; }
         public string Correo { get; set; }
+        public decimal Calificacion { get; set; }
+        public string Curso { get; set; }
 
-        public string Materia { get; set; }
-
-        public string FechaInicio { get; set; }
+       
     }
 }
