@@ -1,0 +1,63 @@
+<mat-card style="width: 70%; margin: 50px auto;">
+
+  <mat-card-header>
+    <mat-card-title><p>Lista Estudiantes</p></mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <button mat-stroked-button color="primary" (click)="nuevo()">Nuevo Estudiante</button>
+
+    <table mat-table [dataSource]="listaEstudiante" class="mat-elevation-z2" style="margin-top:20px">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre. </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="Edad">
+        <th mat-header-cell *matHeaderCellDef> Edad </th>
+        <td mat-cell *matCellDef="let element"> {{element.edad}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Correo">
+        <th mat-header-cell *matHeaderCellDef> Correo </th>
+        <td mat-cell *matCellDef="let element"> {{element.correo}} </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="Calificacion">
+        <th mat-header-cell *matHeaderCellDef> Calificacion </th>
+        <td mat-cell *matCellDef="let element"> {{element.calificacion}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Curso">
+        <th mat-header-cell *matHeaderCellDef> Curso </th>
+        <td mat-cell *matCellDef="let element"> {{element.curso}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="accion">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+
+            <button mat-icon-button color="primary"(click)="editar(element)">
+                <mat-icon>edit</mat-icon>
+              </button>
+
+              <button mat-icon-button color="warn"(click)="eliminar(element)">
+                <mat-icon>delete</mat-icon>
+              </button>
+
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

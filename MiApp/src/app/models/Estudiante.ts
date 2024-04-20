@@ -1,7 +1,9 @@
 export interface Estudiante{
-    IdEstudiante : number
-    NombreCompleto : string
-    Correo : string
-    Materia : string
-    FechaInicio : string
+   idEstudiante: number
+   nombre : string
+   edad : number
+   correo : string
+   calificacion : number
+   curso : string
+
 }
