@@ -43,7 +43,7 @@ namespace WebApi.Controllers
         }
 
 
-        [HttpPut]
+        [HttpPut("{Id}")]
 
         public async Task<IActionResult> Editar([FromBody] Estudiante Objeto)
         {

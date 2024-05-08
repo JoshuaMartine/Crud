@@ -79,13 +79,10 @@ namespace WebApi.Data
 
         public async Task<bool> Crear(Estudiante objeto)
         {
-            bool respuesta = true;
-
             using (var con = new SqlConnection(conexion))
             {
-
+                await con.OpenAsync();
                 SqlCommand cmd = new SqlCommand("CrearEstudiante", con);
-                cmd.Parameters.AddWithValue("@IdEstudiante", objeto.IdEstudiante);
                 cmd.Parameters.AddWithValue("@Nombre", objeto.Nombre);
                 cmd.Parameters.AddWithValue("@Edad", objeto.Edad);
                 cmd.Parameters.AddWithValue("@Correo", objeto.Correo);
@@ -94,18 +91,16 @@ namespace WebApi.Data
                 cmd.CommandType = CommandType.StoredProcedure;
                 try
                 {
-                    await con.OpenAsync();
-                    respuesta = await cmd.ExecuteNonQueryAsync() > 0 ? true : false;
+                    return (await cmd.ExecuteNonQueryAsync()) > 0;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    respuesta = false;
+                    // Considere loguear la excepción o devolver el mensaje de error
+                    Console.Error.WriteLine(ex.Message); // Ejemplo de log
+                    return false;
                 }
-            
             }
-            return respuesta;
-         
-        } 
+        }
 
         public async Task<bool> Editar(Estudiante Objeto)
         {
