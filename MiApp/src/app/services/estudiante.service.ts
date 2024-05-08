@@ -25,8 +25,8 @@ export class EstudianteService {
     return this.http.post<responseAPI>(this.apiUrl, objeto);
   }
 
-  Editar(objeto: Estudiante): Observable<responseAPI> {
-    return this.http.put<responseAPI>(this.apiUrl, objeto);
+  editar(objeto:Estudiante){
+    return this.http.put<responseAPI>(this.apiUrl,objeto);
   }
 
   Eliminar(id: number): Observable<responseAPI> {
