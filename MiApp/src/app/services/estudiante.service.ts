@@ -9,7 +9,7 @@ import { responseAPI } from '../models/responseAPI';
 })
 export class EstudianteService {
 
-  private apiUrl: string = 'http://localhost:5153/api/Estudiantecontrollers'; // Modifica la URL según tu configuración
+  private apiUrl: string = 'http://localhost:5153/api/EstudianteControllers'; // Modifica la URL según tu configuración
 
   constructor(private http: HttpClient) { }
 
@@ -22,11 +22,12 @@ export class EstudianteService {
   }
 
   Crear(objeto: Estudiante): Observable<responseAPI> {
+    console.log("Enviando datos al servidor:", objeto);
     return this.http.post<responseAPI>(this.apiUrl, objeto);
   }
 
-  editar(objeto:Estudiante){
-    return this.http.put<responseAPI>(this.apiUrl,objeto);
+  editar(objeto: Estudiante) {
+    return this.http.put<responseAPI>(`${this.apiUrl}/${objeto.idEstudiante}`, objeto);
   }
 
   Eliminar(id: number): Observable<responseAPI> {

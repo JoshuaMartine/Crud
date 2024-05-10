@@ -1,47 +1,49 @@
-<div class="mat-elevation-z2" style="width: 30%; padding: 30px; margin: 50px auto; display: flex;justify-content: center;">
-    <form [formGroup]="formEstudiante">
-        <div class="flex">
-            <mat-form-field>
-                <mat-label>Nombre Completo</mat-label>
-                <input matInput  formControlName="nombre">
-              </mat-form-field>
-
-              <div class="flex">
-                <mat-form-field>
-                    <mat-label>Correo</mat-label>
-                    <input matInput  formControlName="correo">
-                  </mat-form-field>
-            </div>
-            <div class="flex">
-                <mat-form-field>
-                    <mat-label>Edad</mat-label>
-                    <input matInput type="number"  formControlName="edad">
-                  </mat-form-field>
-            </div>
-            <div class="flex">
-                 
-                <mat-form-field>
-                    <mat-label>calificacion</mat-label>
-                    <input matInput  formControlName="calificacion">
-                  </mat-form-field>
-            </div>
-
-
-            <div class="flex">
-                <mat-form-field>
-                    <mat-label>Curso</mat-label>
-                    <input matInput  formControlName="curso">
-                  </mat-form-field>
-            </div>
-    
-            <div class="flex">
-                <button mat-flat-button color="primary" (click)="guardar()">Guardar</button>
-                <button mat-flat-button color="warn" (click)="volver()" style="margin-left: 8px;">Volver</button>
-            </div>
-    
-        </div>
-        
-    
-
+<div class="mat-elevation-z2" style="width: 30%; padding: 30px; margin: 50px auto; display: flex; flex-direction: column; align-items: center;">
+    <form [formGroup]="formEstudiante" (ngSubmit)="guardar()">
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Nombre Completo</mat-label>
+        <input matInput formControlName="nombre">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="correo">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Edad</mat-label>
+        <input matInput type="number" formControlName="edad">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Calificación N</mat-label>
+        <input matInput type="number" formControlName="calificacionN">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Calificación M</mat-label>
+        <input matInput type="number" formControlName="calificacionM">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Calificación S</mat-label>
+        <input matInput type="number" formControlName="calificacionS">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Calificación L</mat-label>
+        <input matInput type="number" formControlName="calificacionL">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Curso</mat-label>
+        <input matInput formControlName="curso">
+      </mat-form-field>
+  
+      <div style="margin-top: 20px; display: flex; justify-content: space-between; width: 100%;">
+        <button mat-flat-button color="primary" type="submit">Guardar</button>
+        <button mat-flat-button color="warn" (click)="volver()">Volver</button>
+      </div>
     </form>
-</div>
+  </div>
+  

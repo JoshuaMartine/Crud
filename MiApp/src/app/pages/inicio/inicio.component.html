@@ -1,38 +1,49 @@
 <mat-card style="width: 70%; margin: 50px auto;">
-
   <mat-card-header>
-    <mat-card-title><p>Lista Estudiantes</p></mat-card-title>
+    <mat-card-title><p>Lista de Estudiantes</p></mat-card-title>
   </mat-card-header>
 
   <mat-card-content>
     <button mat-stroked-button color="primary" (click)="nuevo()">Nuevo Estudiante</button>
-
     <table mat-table [dataSource]="listaEstudiante" class="mat-elevation-z2" style="margin-top:20px">
-
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-    
-      <!-- Position Column -->
+      
       <ng-container matColumnDef="Nombre">
-        <th mat-header-cell *matHeaderCellDef> Nombre. </th>
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
         <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
       </ng-container>
     
-      <!-- Name Column -->
       <ng-container matColumnDef="Edad">
         <th mat-header-cell *matHeaderCellDef> Edad </th>
         <td mat-cell *matCellDef="let element"> {{element.edad}} </td>
       </ng-container>
     
-      <!-- Weight Column -->
       <ng-container matColumnDef="Correo">
         <th mat-header-cell *matHeaderCellDef> Correo </th>
         <td mat-cell *matCellDef="let element"> {{element.correo}} </td>
       </ng-container>
     
-      <!-- Symbol Column -->
+      <ng-container matColumnDef="CalificacionN">
+        <th mat-header-cell *matHeaderCellDef> Calificación N </th>
+        <td mat-cell *matCellDef="let element"> {{element.calificacionN}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="CalificacionM">
+        <th mat-header-cell *matHeaderCellDef> Calificación M </th>
+        <td mat-cell *matCellDef="let element"> {{element.calificacionM}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="CalificacionS">
+        <th mat-header-cell *matHeaderCellDef> Calificación S </th>
+        <td mat-cell *matCellDef="let element"> {{element.calificacionS}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="CalificacionL">
+        <th mat-header-cell *matHeaderCellDef> Calificación L </th>
+        <td mat-cell *matCellDef="let element"> {{element.calificacionL}} </td>
+      </ng-container>
+      
       <ng-container matColumnDef="Calificacion">
-        <th mat-header-cell *matHeaderCellDef> Calificacion </th>
+        <th mat-header-cell *matHeaderCellDef> Calificación Promedio </th>
         <td mat-cell *matCellDef="let element"> {{element.calificacion}} </td>
       </ng-container>
 
@@ -42,17 +53,14 @@
       </ng-container>
 
       <ng-container matColumnDef="accion">
-        <th mat-header-cell *matHeaderCellDef></th>
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
         <td mat-cell *matCellDef="let element">
-
-            <button mat-icon-button color="primary"(click)="editar(element)">
-                <mat-icon>edit</mat-icon>
-              </button>
-
-              <button mat-icon-button color="warn"(click)="eliminar(element)">
-                <mat-icon>delete</mat-icon>
-              </button>
-
+          <button mat-icon-button color="primary" (click)="editar(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="eliminar(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
         </td>
       </ng-container>
     
